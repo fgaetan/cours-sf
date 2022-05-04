@@ -14,9 +14,18 @@ class TestController extends AbstractController
     public function index(): Response
     {
         $prenom = 'Gaétan';
+        $nom = 'Frion';
         return $this->render('test/index.html.twig', [
-            'controller_name' => 'Page de test',
-            'route' => "Je m'appelle".' '.$prenom
+            'nom' => $nom,
+            'prenom' => $prenom
+        ]);
+    }
+    /**
+     * @Route("/test/route.param.html.twig", name="routeparam")
+     */
+    public function routeParam(): Response {
+        return $this->render('test/route.param.html.twig', [
+            'contenu' => 'Hello there!'
         ]);
     }
 }
